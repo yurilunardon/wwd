@@ -1,1 +1,0 @@
-@rpath/HandyShots.debug.dylib
