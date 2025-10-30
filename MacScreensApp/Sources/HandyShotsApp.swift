@@ -8,41 +8,65 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var settingsWindow: NSWindow?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        print("🚀 HandyShots sta partendo...")
+
         // Nasconde l'icona dock
         NSApp.setActivationPolicy(.accessory)
+        print("✓ Activation policy impostata")
 
         // Crea status bar item
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        print("✓ Status item creato")
 
         if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "camera.viewfinder", accessibilityDescription: "Screenshots")
+            // Prova prima con SF Symbol, poi con fallback
+            if let sfImage = NSImage(systemSymbolName: "camera.viewfinder", accessibilityDescription: "HandyShots") {
+                button.image = sfImage
+                print("✓ Icona SF Symbol caricata")
+            } else {
+                // Fallback: usa emoji come testo
+                button.title = "📸"
+                print("✓ Fallback icona emoji usato")
+            }
             button.action = #selector(togglePopover)
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
+            print("✓ Button configurato")
+        } else {
+            print("❌ ERRORE: impossibile ottenere button da statusItem!")
         }
 
         // Crea popover
         popover = NSPopover()
         popover.contentSize = NSSize(width: 600, height: 500)
         popover.behavior = .transient
+        print("✓ Popover creato")
 
         // Verifica stato app
+        print("→ Controllo stato app...")
         checkAppState()
+        print("✓ HandyShots pronta!")
     }
 
     func checkAppState() {
         let defaults = UserDefaults.standard
         let hasCompletedSetup = defaults.bool(forKey: "hasCompletedSetup")
+        print("   Setup completato: \(hasCompletedSetup)")
 
         if !hasCompletedSetup {
             // Mostra onboarding
+            print("   → Mostrando onboarding")
             showOnboarding()
         } else {
             // Verifica permessi
-            if hasFullDiskAccess() {
+            let hasAccess = hasFullDiskAccess()
+            print("   Full Disk Access: \(hasAccess)")
+            if hasAccess {
                 // Mostra griglia screenshot
+                print("   → Mostrando griglia screenshot")
                 showMainView()
             } else {
                 // Mostra richiesta permessi
+                print("   → Mostrando richiesta permessi")
                 showPermissionRequest()
             }
         }
