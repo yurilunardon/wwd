@@ -66,7 +66,7 @@ struct SettingsView: View {
 
             Spacer()
 
-            Text("Screenshot Monitor v1.0")
+            Text("HandyShots v1.0")
                 .font(.caption)
                 .foregroundColor(.secondary)
         }

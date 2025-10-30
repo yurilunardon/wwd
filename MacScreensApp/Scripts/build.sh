@@ -5,9 +5,9 @@
 
 set -e
 
-APP_NAME="Screenshot Monitor"
-BUNDLE_ID="com.yourname.screenshotmonitor"
-EXECUTABLE_NAME="ScreenshotMonitor"
+APP_NAME="HandyShots"
+BUNDLE_ID="com.yourname.handyshots"
+EXECUTABLE_NAME="HandyShots"
 BUILD_DIR="build"
 SOURCES_DIR="Sources"
 
@@ -37,7 +37,7 @@ function print_info() {
 }
 
 function show_help() {
-    echo "Screenshot Monitor - Build & Reset Script"
+    echo "HandyShots - Build & Reset Script"
     echo ""
     echo "Uso:"
     echo "  ./build.sh              - Compila l'app"
@@ -48,7 +48,7 @@ function show_help() {
 }
 
 function reset_app() {
-    print_header "Reset Impostazioni App"
+    print_header "Reset Impostazioni HandyShots"
 
     print_info "Rimozione impostazioni UserDefaults..."
     defaults delete "$BUNDLE_ID" 2>/dev/null || true
@@ -73,7 +73,7 @@ function clean_build() {
 }
 
 function build_app() {
-    print_header "Compilazione Screenshot Monitor"
+    print_header "Compilazione HandyShots"
 
     # Verifica di essere nella directory corretta
     if [ ! -d "$SOURCES_DIR" ]; then
@@ -126,7 +126,7 @@ function build_app() {
     cp Info.plist "$CONTENTS_DIR/"
 
     # Copia entitlements (per riferimento)
-    cp ScreenshotMonitor.entitlements "$RESOURCES_DIR/"
+    cp HandyShots.entitlements "$RESOURCES_DIR/"
 
     print_success "Bundle applicazione creato"
 
