@@ -103,7 +103,7 @@ struct PopoverView: View {
                 }
             }
         }
-        .frame(width: 480, height: 400)
+        .frame(width: 600, height: 500)
     }
     
     private var currentFolder: String {
