@@ -1,0 +1,21 @@
+# Build artifacts
+build/
+*.app
+
+# Xcode
+xcuserdata/
+*.xcworkspace
+*.xcodeproj
+
+# macOS
+.DS_Store
+._*
+
+# Swift
+*.swiftmodule
+*.swiftdoc
+*.o
+
+# Temporary files
+*.tmp
+*~
