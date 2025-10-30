@@ -20,7 +20,7 @@ class FolderMonitor: ObservableObject {
     }
     
     private func setupNotificationObserver() {
-        // Listen for system screenshot location changes (primary method)
+        // Listen for system screenshot location changes
         DistributedNotificationCenter.default().addObserver(
             forName: NSNotification.Name("com.apple.screencapture.location"),
             object: nil,
@@ -30,20 +30,6 @@ class FolderMonitor: ObservableObject {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self?.checkForFolderChange()
             }
-        }
-        
-        // Also try listening to defaults changes
-        NotificationCenter.default.addObserver(
-            forName: UserDefaults.didChangeNotification,
-            object: nil,
-            queue: .main
-        ) { [weak self] _ in
-            self?.checkForFolderChange()
-        }
-        
-        // Check periodically as backup (every 5 seconds for better responsiveness)
-        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
-            self?.checkForFolderChange()
         }
     }
     
