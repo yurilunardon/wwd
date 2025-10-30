@@ -5,13 +5,13 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleExecutable</key>
-    <string>ScreenshotMonitor</string>
+    <string>HandyShots</string>
     <key>CFBundleIdentifier</key>
-    <string>com.yourname.screenshotmonitor</string>
+    <string>com.yourname.handyshots</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
-    <string>Screenshot Monitor</string>
+    <string>HandyShots</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>

@@ -1,4 +1,4 @@
-# Screenshot Monitor 📸
+# HandyShots 📸
 
 Una semplice menu bar app per macOS che monitora e mostra gli screenshot recenti.
 
@@ -37,7 +37,7 @@ cp -r build/Screenshot\ Monitor.app /Applications/
 1. Apri **Preferenze di Sistema** → **Sicurezza e Privacy** → **Privacy**
 2. Seleziona **Accesso completo al disco**
 3. Clicca sul lucchetto per apportare modifiche
-4. Clicca **+** e aggiungi **Screenshot Monitor.app**
+4. Clicca **+** e aggiungi **HandyShots.app**
 
 ### 4. Avvia l'app
 
@@ -105,7 +105,7 @@ Per tornare allo stato iniziale dell'app:
 ```
 MacScreensApp/
 ├── Sources/
-│   ├── ScreenshotMonitorApp.swift      # App principale e AppDelegate
+│   ├── HandyShotsApp.swift             # App principale e AppDelegate
 │   ├── WelcomeView.swift               # Video di benvenuto e configurazione
 │   ├── PermissionRequestView.swift     # Richiesta permessi
 │   ├── MainScreenshotGridView.swift    # Griglia screenshot principale
@@ -113,7 +113,7 @@ MacScreensApp/
 ├── Scripts/
 │   └── build.sh                        # Script di build e reset
 ├── Info.plist                          # Configurazione bundle
-├── ScreenshotMonitor.entitlements      # Entitlements (no sandbox)
+├── HandyShots.entitlements             # Entitlements (no sandbox)
 └── README.md                           # Questo file
 ```
 
@@ -163,7 +163,7 @@ Le impostazioni sono salvate in `UserDefaults`:
 ```bash
 # Compila tutti i file Swift
 swiftc Sources/*.swift \
-    -o build/ScreenshotMonitor \
+    -o build/HandyShots \
     -framework Cocoa \
     -framework SwiftUI \
     -framework AppKit \
@@ -177,7 +177,7 @@ Per vedere i log dell'app:
 
 ```bash
 # Esegui da terminale per vedere l'output
-./build/Screenshot\ Monitor.app/Contents/MacOS/ScreenshotMonitor
+./build/Screenshot\ Monitor.app/Contents/MacOS/HandyShots
 ```
 
 ## License
